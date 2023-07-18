@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primaryColor: #afcee8;
+  font-size: 20px;
+}
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* =================================================================*/
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+.menu {
+  display: none;
+}
+.navTitle {
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+}
+
+.navItem {
+  list-style-type: none;
+  padding: 20px;
+}
+
+/* =================================================================*/
+.headerContainer {
+  height: 250px;
+  background-color: #fdfcff;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%23afcee8' fill-opacity='0.77' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.headerText {
+  font-size: 2em;
+  text-align: center;
+  line-height: 250px;
+}
+
+/* =================================================================*/
+.Container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.photoContainer {
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+.promotion {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.promotionItem1 {
+  width: 380px;
+  height: 40px;
+  display: flex;
+  background-color: var(--primaryColor);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.imgContainer1 {
+  height: 40px;
+  width: 60px;
+}
+
+.promotionItem2 {
+  width: 380px;
+  height: 40px;
+  display: flex;
+  background-color: var(--primaryColor);
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.imgContainer2 {
+  height: 40px;
+  width: 60px;
+}
+
+.img1 {
+  width: auto;
+  max-height: 100%;
+}
+.p1 {
+  margin-left: 10px;
+  line-height: 40px;
+}
+
+/* =================================================================*/
+.titleContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+}
+
+.titleItem {
+  background-color: var(--primaryColor);
+  margin-bottom: 20px;
+}
+
+.imgContainer3 {
+  height: 180px;
+  width: 180px;
+  overflow: hidden;
+}
+
+.img2 {
+  width: auto;
+  height: 100%;
+}
+
+.p2 {
+  line-height: 40px;
+  text-align: center;
+}
+
+/* RWD 1200px=================================================================*/
+@media (max-width: 1200px) {
+  .photoContainer {
+    width: 90%;
+  }
+  .promotion {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 0px;
+  }
+  .promotionItem1 {
+    flex: 1;
+    margin-bottom: 20px;
+    height: 50px;
+  }
+  .promotionItem2 {
+    width: 100%;
+    height: 50px;
+  }
+  .p1 {
+    line-height: 50px;
+  }
+
+  .titleContainer {
+    flex-wrap: nowrap;
+    display: inline;
+    column-count: 4;
+    gap:0px 20px;
+    padding: 10px;
+  }
+
+  .titleItem {
+    width:100% ;
+  }
+
+  .imgContainer3 {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .img2 {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* 600px=================================================================*/
+@media (max-width: 600px) {
+  .promotion {
+    flex-direction: column;
+  }
+  .promotionItem1 {
+    flex: none;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  .promotionItem2 {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .titleContainer {
+    display: inline;
+    column-count: 1;
+    padding: 0;
+  }
+
+  .imgContainer3 {
+    overflow: visible;
+    width: auto;
+    height: auto;
+  }
+  .img2 {
+    width: 100%;
+    height: auto;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .menu {
+    display: inline;
+    width: 25px;
+    height: 25px;
+    margin: 20px;
+  }
+  .titleItem {
+    width: 100%;
+  }
+}
