@@ -119,7 +119,6 @@ body {
   width: 100%;
   height: 180px;
   position: relative;
-  background-image: url("cat.jpeg");
   background-size: cover;
   border-radius: 10px;
 }
