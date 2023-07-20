@@ -127,7 +127,7 @@ function toggleMenu() {
 function loadMore() {
   clickCount++;
   if (clickCount <4) {
-    generateItems(clickCount*12+1);
+    generateItems(clickCount * 12 + 1);
     getDataForItems((clickCount+1)*12);
   } else if (clickCount == 4) {
     loopCount = 7;
@@ -136,6 +136,7 @@ function loadMore() {
     loadBtn.style.display = "none";
   }
 }
+
 
 //* 初始載入狀況
 generateItems(1);
