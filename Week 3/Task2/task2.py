@@ -38,7 +38,7 @@ def get_date(soup):
     for element in data:
         title = element.select("div.title")[0].text.strip()
         if "公告" in title or "刪除" in title:
-            continue
+            continue #去除無關的內容
         link = element.select("div.title a")[0]["href"]
         article_link = "https://www.ptt.cc"+link
         article_data = get_page_html(article_link)
