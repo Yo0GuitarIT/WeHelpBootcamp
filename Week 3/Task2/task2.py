@@ -20,7 +20,7 @@ def get_title_pushtimes(soup):
         push_times = "0"
         title = element.select("div.title")[0].text.strip()
         if "公告" in title or "刪除" in title:
-            continue
+            continue #去除無關的內容
         try:
             push_times = element.select("span.hl")[0].text
         except IndexError:
