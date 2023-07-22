@@ -1,7 +1,7 @@
 import urllib.request
 import json
 import csv
-
+#test line
 json_url = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json"
 
 # *發送GET請求取得網站上的JSON資訊
