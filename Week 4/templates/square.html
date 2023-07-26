@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='lock.ico') }}"
+    />
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="container">
+        <div class="titleBox">
+          <p>Result</p>
+        </div>
+        <div class="infoContainer">
+          <div class="content">
+            <p id="squared-number"></p>
+          </div>
+          <div class="content">
+            <a href="/">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const number = {{ number }};
+      const squaredNumber = {{ squared_number }};
+      const squaredNumberElement = document.getElementById("squared-number");
+      squaredNumberElement.textContent = squaredNumber;
+    </script>
+  </body>
+</html>

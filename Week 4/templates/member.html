@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='lock.ico') }}">
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="container">
+        <div class="titleBox">
+          <p>
+            Welcome ~ <br />
+            Display Page
+          </p>
+        </div>
+        <div class="infoContainer">
+          <p>Congratulations! successfully logged in.</p>
+        </div>
+        <div class="content">
+          <a href="/signout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

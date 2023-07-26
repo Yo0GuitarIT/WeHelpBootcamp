@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 30px;
+  font-family: "VT323", monospace;
+}
+
+body {
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1690055899078-63be27a01cdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80");
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainContainer {
+  width: clamp(800px, 50%, 650px);
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.titleBox {
+  display: flex;
+  align-items: center;
+  background-color: rgba(33, 140, 197, 0.582);
+  border-radius: 15px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.inputbox {
+  width: 60%;
+  height: 40px;
+  padding: 2px;
+  border: 0;
+  border-radius: 15px;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+.checkbox {
+  opacity: 0.5;
+  transition: border-color 0.3s;
+}
+
+.checkbox:checked {
+  border-color: #00f;
+}
+
+.checkbox {
+  transform: scale(1.5);
+  margin-left: 10px;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  width: 80%;
+  height: 40px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(33, 140, 197, 0.582);
+}
+
+.infoContainer {
+  text-align: center;
+  margin: 5px;
+}
+
+a {
+  display: inline-block;
+  padding: 10px;
+  background-color:rgba(255, 255, 255, 0.5);
+  color: black;
+
+  text-align: center;
+  text-decoration: none;
+  border-radius: 15px;
+  /* 添加hover效果 */
+  transition: background-color 0.3s;
+}
+
+a:hover {
+  background-color: rgba(33, 140, 197, 0.582);
+}
+
+a:visited {
+  background-color: rgba(33, 140, 197, 0.582);
+}
+
+.mathContainer {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+}

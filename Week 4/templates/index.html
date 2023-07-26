@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login System</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='lock.ico') }}"
+    />
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="container">
+        <div class="titleBox">
+          <p>Please Enter Your Acount and Password</p>
+        </div>
+        <div class="infoContainer">
+          <div class="content">
+            <p>Login System</p>
+          </div>
+          <form action="/signin" method="post" onsubmit="return validateForm()">
+            <div class="content">
+              <input
+                type="text"
+                class="inputbox"
+                id="username"
+                name="username"
+                placeholder="Username"
+              />
+            </div>
+            <div class="content">
+              <input
+                type="password"
+                class="inputbox"
+                id="password"
+                name="password"
+                placeholder="Password"
+              />
+            </div>
+            <div class="content">
+              <label for="checkbox">Accept the Agreement</label>
+              <input type="checkbox" class="checkbox" id="checkbox" />
+            </div>
+            <div class="content">
+              <button type="submit" id="submitButton">Sign In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="mathContainer">
+        <div class="content">
+          <p>Calculate the Square of a Positive Integer</p>
+        </div>
+        <form>
+          <div class="content">
+            <input
+              class="inputbox"
+              type="text"
+              id="number"
+              name="number"
+              placeholder="Enter a Number"
+            />
+          </div>
+          <div class="content">
+            <button type="button" id="calculate">Calculate!!!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="static/script.js"></script>
+  </body>
+</html>
