@@ -1,13 +1,13 @@
 const checkbox = document.getElementById("checkbox");
 const calculate = document.getElementById("calculate");
 
-function validateForm() {
+let validateForm = () => {
   if (!checkbox.checked) {
     alert("Please check the Acception First");
     return false; // 阻止表單提交
   }
   return true; // 允許表單提交
-}
+};
 
 calculate.addEventListener("click", () => {
   const number = document.getElementById("number").value.trim();
