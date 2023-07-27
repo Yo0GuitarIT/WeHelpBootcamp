@@ -6,13 +6,18 @@
   box-sizing: border-box;
   font-size: 30px;
   font-family: "VT323", monospace;
+  text-shadow: 1px 1px rgba(236, 232, 232, 0.5);
+}
+
+:root {
+  --primaryColor: rgba(255, 255, 255, 0.5);
+  --color: rgba(33, 140, 197, 0.582);
 }
 
 body {
   height: 100vh;
   background-image: url("https://images.unsplash.com/photo-1690055899078-63be27a01cdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80");
   background-size: cover;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,18 +33,21 @@ body {
 
 .container {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
   padding: 20px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  background: transparent;
+  border: 2px solid var(--primaryColor);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .titleBox {
   display: flex;
   align-items: center;
-  background-color: rgba(33, 140, 197, 0.582);
+  background-color: var(--color);
   border-radius: 15px;
   padding: 10px;
   justify-content: center;
@@ -58,6 +66,10 @@ body {
   padding: 2px;
   border: 0;
   border-radius: 15px;
+}
+
+input {
+  text-align: center;
 }
 
 input::placeholder {
@@ -87,7 +99,7 @@ button {
 }
 
 button:hover {
-  background-color: rgba(33, 140, 197, 0.582);
+  background-color: var(--color);
 }
 
 .infoContainer {
@@ -98,25 +110,26 @@ button:hover {
 a {
   display: inline-block;
   padding: 10px;
-  background-color:rgba(255, 255, 255, 0.5);
+  background-color: var(--primaryColor);
   color: black;
-
   text-align: center;
   text-decoration: none;
   border-radius: 15px;
-  /* 添加hover效果 */
   transition: background-color 0.3s;
 }
 
 a:hover {
-  background-color: rgba(33, 140, 197, 0.582);
+  background-color: var(--color);
 }
 
 a:visited {
-  background-color: rgba(33, 140, 197, 0.582);
+  background-color: var(--color);
 }
 
 .mathContainer {
-  background-color: rgba(255, 255, 255, 0.5);
+  background: transparent;
   border-radius: 20px;
+  border: 2px solid var(--primaryColor);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
