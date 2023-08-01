@@ -184,4 +184,5 @@ mysqldump -u root -p website > data.sql
 ```
 ![截圖 2023-08-02 上午3 47 57](https://github.com/Yo0GuitarIT/WeHelpBootcamp/assets/118150842/b54546ef-45eb-4f4a-a915-975aae4400c3)
 
-
+> 所有資料庫website內容
+![截圖 2023-08-02 上午4 26 03](https://github.com/Yo0GuitarIT/WeHelpBootcamp/assets/118150842/4611d34f-7f8e-401b-8b4d-155aff6df842)
