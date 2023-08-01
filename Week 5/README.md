@@ -167,8 +167,6 @@ WHERE member.username = 'test';
 INSERT INTO message (member_id, content, like_count) VALUES (1, '公告!!請注意謝謝~~<3!!', 100);
 INSERT INTO message (member_id, content, like_count) VALUES (1, '搖滾名人堂形容Jimi Hendrix是「搖滾樂史上最偉大的樂手」。', 666);
 ```
-![截圖 2023-08-02 上午3 36 30](https://github.com/Yo0GuitarIT/WeHelpBootcamp/assets/118150842/e5934a21-dd99-4a4b-9dbf-d4cf995c634e)
-
 >計算平均按讚數：
 ```
 SELECT AVG(message.like_count) AS avg_likes
@@ -176,6 +174,7 @@ FROM message
 JOIN member ON message.member_id = member.id
 WHERE member.username = 'test';
 ```
+![截圖 2023-08-02 上午3 36 30](https://github.com/Yo0GuitarIT/WeHelpBootcamp/assets/118150842/e5934a21-dd99-4a4b-9dbf-d4cf995c634e)
 
 ***
 ## Export
