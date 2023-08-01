@@ -13,6 +13,7 @@ mysql --version;
 ```
 CREATE DATABASE website;
 ```
+![截圖 2023-08-02 上午12 16 36](https://github.com/Yo0GuitarIT/WeHelpBootcamp/assets/118150842/dc2b1f3e-5d51-4821-bcc4-62556b2ceaa4)
 
 > 顯示所有已建立的資料庫
 ```
