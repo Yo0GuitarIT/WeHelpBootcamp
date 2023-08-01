@@ -31,11 +31,13 @@ CREATE TABLE member (
     time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 ```
+![截圖 2023-08-02 上午1 18 10](https://github.com/Yo0GuitarIT/WeHelpBootcamp/assets/118150842/dc4d2901-e3f3-4c34-8679-cee09bdcf3a5)
 
 > 顯示member表單所有欄位資訊：
 ```
 DESCRIBE member;
 ```
+![截圖 2023-08-02 上午1 18 34](https://github.com/Yo0GuitarIT/WeHelpBootcamp/assets/118150842/fc85c379-4988-4c92-bfa3-c7c9afc22d34)
 
 ## Task3:
 
