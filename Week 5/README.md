@@ -5,6 +5,7 @@
 ```
 mysql --version; 
 ```
+![截圖 2023-08-02 上午4 00 25](https://github.com/Yo0GuitarIT/WeHelpBootcamp/assets/118150842/3759f108-738a-4b2b-9f0f-5ce67912528b)
 
 ## Task2:
 
