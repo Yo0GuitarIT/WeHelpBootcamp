@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='lock.ico') }}"
+    />
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="container">
+        <div class="titleBox">
+          <p>Welcome~<br />This is the Page for Members</p>
+        </div>
+        <div class="infoContainer">
+          <p>{{name}}~<br />Welcome to the system.</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="titleBox">
+          <p>Leave a Message</p>
+        </div>
+        <div class="content">
+          <input
+            type="text"
+            class="inputbox"
+            id="message"
+            name="message"
+            placeholder="My Message"
+          />
+        </div>
+        <div class="content">
+          <button type="button" id="submitButton">Submit</button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="titleBox">
+          <p>Message Board</p>
+        </div>
+        
+        <ul>
+          {% for message in messages %}
+          <p>
+            {{ message.name }}: {{ message.content }}
+            <button
+              class="deleteButton"
+              data-message-content="{{ message['content'] }}"
+            >
+              X
+            </button>
+          </p>
+          {% endfor %}
+        </ul>
+        <div id="messageContainer"></div>
+      </div>
+      <div class="signoutButton">
+        <a href="/signout">Sign out</a>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='member.js') }}"></script>
+    <script>
+      let currentUsername = "{{ session['name'] }}";
+    </script>
+  </body>
+</html>
