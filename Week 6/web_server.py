@@ -98,7 +98,6 @@ def createMessage():
         messageContent = request.form.get("message_content")
         try:
             with connection.cursor() as cursor:
-                # 將訊息資料插入到 message 資料表中
                 sql_insert = "INSERT INTO message (member_id, content) VALUES ((SELECT id FROM member WHERE name = %s), %s)"
                 cursor.execute(sql_insert, (name, messageContent))
                 connection.commit()
