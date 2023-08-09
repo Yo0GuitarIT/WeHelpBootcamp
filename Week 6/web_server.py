@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from contextlib import contextmanager
 import pymysql
 
 app = Flask(__name__)
@@ -14,13 +15,11 @@ db_config = {
 
 connection = pymysql.connect(**db_config)
 
-
 @app.route("/")
 def home():
     if 'username' in session:
         return redirect(url_for("member"))
     return render_template("index.html")
-
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
