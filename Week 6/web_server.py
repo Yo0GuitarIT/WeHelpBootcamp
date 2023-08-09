@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from contextlib import contextmanager
 import pymysql
 
 app = Flask(__name__)
@@ -60,7 +59,6 @@ def signin():
     except Exception as ex:
         print("Error:", ex)
 
-
 @app.route("/member")
 def member():
     if 'username' in session:
@@ -68,7 +66,7 @@ def member():
         try:
             with connection.cursor() as cursor:
                 sql = """
-                SELECT m.name, msg.content
+                SELECT m.name, msg.content, msg.id
                 FROM member m
                 INNER JOIN message msg ON m.id = msg.member_id
                 """
@@ -80,6 +78,18 @@ def member():
             messages = []
     return redirect(url_for("home"))
 
+
+@app.route("/error")
+def error():
+    error_message = request.args.get("message")
+    return render_template("error.html", error_message=error_message)
+
+@app.route("/signout")
+def signout():
+    session.pop('member_id', None)
+    session.pop('username', None)
+    session.pop('name', None)
+    return redirect(url_for("home"))
 
 @app.route("/createMessage", methods=["POST"])
 def createMessage():
@@ -99,34 +109,21 @@ def createMessage():
             return "Failed to save message."
     return "Not received message"
 
-@app.route("/error")
-def error():
-    error_message = request.args.get("message")
-    return render_template("error.html", error_message=error_message)
-
-@app.route("/signout")
-def signout():
-    session.pop('member_id', None)
-    session.pop('username', None)
-    session.pop('name', None)
-    return redirect(url_for("home"))
-
 @app.route("/deleteMessage", methods=["POST"])
 def delete_message():
     if "username" in session:
-        message_content = request.form.get("message_content")
+        message_ID = request.form.get("message_ID")
         try:
             with connection.cursor() as cursor:
-                sql_delete = "DELETE FROM message WHERE content = %s"
-                cursor.execute(sql_delete, (message_content,))
+                sql_delete = "DELETE FROM message WHERE id = %s"
+                cursor.execute(sql_delete, (message_ID,))
                 connection.commit()
                 print("Deleted message")
                 return "Message deleted successfully."
         except Exception as ex:
             print("Error:", ex)
             return "Failed to delete message."
-    return redirect(url_for("home"))
-
+    return "Failed to delete message."
 
 if __name__ == "__main__":
     app.run(port=3000, debug=True)

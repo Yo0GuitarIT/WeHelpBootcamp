@@ -14,15 +14,15 @@
     <div class="mainContainer">
       <div class="container">
         <div class="titleBox">
-          <p>Welcome~<br />This is the Page for Members</p>
+          <p class="text">Welcome<br />This is the Page for Members</p>
         </div>
         <div class="infoContainer">
-          <p>{{name}}~<br />Welcome to the system.</p>
+          <p class="text">{{name}}<br />Welcome to the system.</p>
         </div>
       </div>
       <div class="container">
         <div class="titleBox">
-          <p>Leave a Message</p>
+          <p class="text">Leave a Message</p>
         </div>
         <div class="content">
           <input
@@ -39,25 +39,23 @@
       </div>
       <div class="container">
         <div class="titleBox">
-          <p>Message Board</p>
+          <p class="text">Message Board</p>
         </div>
-        
+
         <ul>
           {% for message in messages %}
           <p>
             {{ message.name }}: {{ message.content }}
             <button
               class="deleteButton"
-              data-message-content="{{ message['content'] }}"
+              data-message-content="{{ message['id'] }}"
             >
               X
             </button>
           </p>
           {% endfor %}
         </ul>
-        <div id="messageContainer">
-        </div>
-        
+        <div id="messageContainer"></div>
       </div>
       <div class="signoutButton">
         <a href="/signout">Sign out</a>

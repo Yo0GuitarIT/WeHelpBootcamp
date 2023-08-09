@@ -1,36 +1,8 @@
-function validateFormForSignup() {
-  let registerName = document.getElementById("registerName").value;
-  let registerUsername = document.getElementById("registerUsername").value;
-  let registerPassword = document.getElementById("registerPassword").value;
+function validateForm(inputElementId, errorElementId, errorMessage) {
+  let inputValue = document.getElementById(inputElementId).value;
+  let errorText = document.getElementById(errorElementId);
 
-  if (
-    registerName.trim() === "" ||
-    registerUsername.trim() === "" ||
-    registerPassword.trim() === ""
-  ) {
-    document.getElementById("errorTextForSignup").style.display = "block";
-    return false;
-  } else {
-    document.getElementById("errorTextForSignup").style.display = "none";
-    return true;
-  }
-}
-
-function validateFormForSignin() {
-  let signinUsername = document.getElementById("signinUsername").value;
-  let signinPassword = document.getElementById("signinPassword").value;
-  let errorText = document.getElementById("errorTextForSignin");
-  let errorMessage = "";
-
-  if (signinUsername.trim() === "" && signinPassword.trim() === "") {
-    errorMessage = "Please Enter your Username and Password";
-  } else if (signinUsername.trim() === "") {
-    errorMessage = "Please Enter your Username";
-  } else if (signinPassword.trim() === "") {
-    errorMessage = "Please Enter your Password";
-  }
-
-  if (errorMessage !== "") {
+  if (inputValue.trim() === "") {
     errorText.innerHTML = errorMessage;
     errorText.style.display = "block";
     return false;
@@ -40,25 +12,68 @@ function validateFormForSignin() {
   }
 }
 
-function hideErrorMessage1() {
-  document.getElementById("errorTextForSignup").style.display = "none";
-}
-function hideErrorMessage() {
-  document.getElementById("errorTextForSignin").style.display = "none";
+let validateFormForSignup = () => {
+  return (
+    validateForm(
+      "registerName",
+      "errorTextForSignup",
+      "Please enter your Name"
+    ) &&
+    validateForm(
+      "registerUsername",
+      "errorTextForSignup",
+      "Please enter your Username"
+    ) &&
+    validateForm(
+      "registerPassword",
+      "errorTextForSignup",
+      "Please enter your Password"
+    )
+  );
+};
+
+let validateFormForSignin = () => {
+  return (
+    validateForm(
+      "signinUsername",
+      "errorTextForSignin",
+      "Please enter your Username"
+    ) &&
+    validateForm(
+      "signinPassword",
+      "errorTextForSignin",
+      "Please enter your Password"
+    )
+  );
+};
+
+function hideErrorMessage(errorTextFor) {
+  document.getElementById(errorTextFor).style.display = "none";
 }
 
-document
-  .getElementById("registerName")
-  .addEventListener("input", hideErrorMessage1);
+hideErrorMessage("errorTextForSignup");
+hideErrorMessage("errorTextForSignin");
+
+document.getElementById("registerName").addEventListener("input", function () {
+  hideErrorMessage("errorTextForSignup");
+});
 document
   .getElementById("registerUsername")
-  .addEventListener("input", hideErrorMessage1);
+  .addEventListener("input", function () {
+    hideErrorMessage("errorTextForSignup");
+  });
 document
   .getElementById("registerPassword")
-  .addEventListener("input", hideErrorMessage1);
+  .addEventListener("input", function () {
+    hideErrorMessage("errorTextForSignup");
+  });
 document
   .getElementById("signinUsername")
-  .addEventListener("input", hideErrorMessage);
+  .addEventListener("input", function () {
+    hideErrorMessage("errorTextForSignin");
+  });
 document
   .getElementById("signinPassword")
-  .addEventListener("input", hideErrorMessage);
+  .addEventListener("input", function () {
+    hideErrorMessage("errorTextForSignin");
+  });
