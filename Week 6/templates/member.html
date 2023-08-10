@@ -41,8 +41,17 @@
         <div class="titleBox">
           <p class="text">Message Board</p>
         </div>
-
         <ul>
+          {% for message in messages %}
+          <p>
+            {{ message.name }}: {{ message.content }}
+            {% if message.member_id == member_id %}
+            <button class="deleteButton" data-message-content="{{ message['id'] }}">X</button>
+            {% endif %}
+          </p>
+          {% endfor %}
+        </ul>
+        <!-- <ul>
           {% for message in messages %}
           <p>
             {{ message.name }}: {{ message.content }}
@@ -54,16 +63,17 @@
             </button>
           </p>
           {% endfor %}
-        </ul>
+        </ul> -->
         <div id="messageContainer"></div>
       </div>
       <div class="signoutButton">
         <a href="/signout">Sign out</a>
       </div>
     </div>
-    <script src="{{ url_for('static', filename='member.js') }}"></script>
     <script>
-      let currentUsername = "{{ session['name'] }}";
+      let memberID = "{{ session['member_id'] }}";
+      let currentName = "{{ session['name'] }}";
     </script>
+    <script src="{{ url_for('static', filename='member.js') }}"></script>
   </body>
 </html>

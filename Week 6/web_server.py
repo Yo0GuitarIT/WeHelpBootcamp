@@ -61,18 +61,19 @@ def signin():
 
 @app.route("/member")
 def member():
-    if 'username' in session:
+    if 'member_id' in session:
+        member_id = session['member_id']
         name = session['name']
         try:
             with connection.cursor() as cursor:
                 sql = """
-                SELECT m.name, msg.content, msg.id
-                FROM member m
-                INNER JOIN message msg ON m.id = msg.member_id
+                SELECT mem.name, msg.content, msg.id, msg.member_id
+                FROM member mem
+                INNER JOIN message msg ON mem.id = msg.member_id;
                 """
                 cursor.execute(sql)
                 messages = cursor.fetchall()
-            return render_template("member.html", name=name, messages=messages)
+            return render_template("member.html", name=name, messages=messages, member_id=member_id)
         except Exception as ex:
             print("Error:", ex)
             messages = []
@@ -93,16 +94,18 @@ def signout():
 
 @app.route("/createMessage", methods=["POST"])
 def createMessage():
-    if "name" in session:
-        name = session["name"]
+    if "member_id" in request.form:
+        member_id = request.form.get("member_id")
         messageContent = request.form.get("message_content")
+
         try:
             with connection.cursor() as cursor:
-                sql_insert = "INSERT INTO message (member_id, content) VALUES ((SELECT id FROM member WHERE name = %s), %s)"
-                cursor.execute(sql_insert, (name, messageContent))
+                sql_insert = "INSERT INTO message (member_id, content) VALUES (%s, %s)"
+                cursor.execute(sql_insert, (member_id, messageContent))
                 connection.commit()
+                inserted_message_id = cursor.lastrowid
                 print("Message saved successfully.")
-                return "Message saved successfully."
+                return str(inserted_message_id)
         except Exception as ex:
             print("Error:", ex)
             return "Failed to save message."
@@ -110,8 +113,9 @@ def createMessage():
 
 @app.route("/deleteMessage", methods=["POST"])
 def delete_message():
-    if "username" in session:
+    if "member_id" in session:
         message_ID = request.form.get("message_ID")
+        print(message_ID)
         try:
             with connection.cursor() as cursor:
                 sql_delete = "DELETE FROM message WHERE id = %s"
