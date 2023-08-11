@@ -93,7 +93,7 @@ def signout():
 
 @app.route("/createMessage", methods=["POST"])
 def createMessage():
-    if "member_id" in request.form:
+    if "member_id" in session:
         member_id = session['member_id']
         messageContent = request.form.get("message_content")
 
