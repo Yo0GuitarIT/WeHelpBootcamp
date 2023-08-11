@@ -62,7 +62,6 @@ def signin():
 @app.route("/member")
 def member():
     if 'member_id' in session:
-        member_id = session['member_id']
         name = session['name']
         try:
             with connection.cursor() as cursor:
@@ -73,7 +72,7 @@ def member():
                 """
                 cursor.execute(sql)
                 messages = cursor.fetchall()
-            return render_template("member.html", name=name, messages=messages, member_id=member_id)
+            return render_template("member.html", name=name, messages=messages)
         except Exception as ex:
             print("Error:", ex)
             messages = []
@@ -95,7 +94,7 @@ def signout():
 @app.route("/createMessage", methods=["POST"])
 def createMessage():
     if "member_id" in request.form:
-        member_id = request.form.get("member_id")
+        member_id = session['member_id']
         messageContent = request.form.get("message_content")
 
         try:

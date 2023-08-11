@@ -51,19 +51,6 @@
           </p>
           {% endfor %}
         </ul>
-        <!-- <ul>
-          {% for message in messages %}
-          <p>
-            {{ message.name }}: {{ message.content }}
-            <button
-              class="deleteButton"
-              data-message-content="{{ message['id'] }}"
-            >
-              X
-            </button>
-          </p>
-          {% endfor %}
-        </ul> -->
         <div id="messageContainer"></div>
       </div>
       <div class="signoutButton">
@@ -71,7 +58,6 @@
       </div>
     </div>
     <script>
-      let memberID = "{{ session['member_id'] }}";
       let currentName = "{{ session['name'] }}";
     </script>
     <script src="{{ url_for('static', filename='member.js') }}"></script>
