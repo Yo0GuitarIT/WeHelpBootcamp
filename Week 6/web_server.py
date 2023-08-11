@@ -5,18 +5,18 @@ app = Flask(__name__)
 app.secret_key = "Yo0_secret_key"
 
 db_config = {
-    'host': 'ChendeMac-mini.local',
-    'user': 'root',
-    'password': '12345678',
-    'database': 'website',
-    'cursorclass': pymysql.cursors.DictCursor
+    "host": "ChendeMac-mini.local",
+    "user": "root",
+    "password": "12345678",
+    "database": "website",
+    "cursorclass": pymysql.cursors.DictCursor
 }
 
 connection = pymysql.connect(**db_config)
 
 @app.route("/")
 def home():
-    if 'username' in session:
+    if "username" in session:
         return redirect(url_for("member"))
     return render_template("index.html")
 
@@ -51,9 +51,9 @@ def signin():
             cursor.execute(sql, (username, password))
             result = cursor.fetchone()
         if result:
-            session['member_id'] = result['id']
-            session['username'] = result['username']
-            session['name'] = result['name']
+            session["member_id"] = result["id"]
+            session["username"] = result["username"]
+            session["name"] = result["name"]
             return redirect(url_for("member"))
         return redirect("/error?message=Username or Password is not Correct.")
     except Exception as ex:
@@ -61,8 +61,8 @@ def signin():
 
 @app.route("/member")
 def member():
-    if 'member_id' in session:
-        name = session['name']
+    if "member_id" in session:
+        name = session["name"]
         try:
             with connection.cursor() as cursor:
                 sql = """
@@ -86,17 +86,16 @@ def error():
 
 @app.route("/signout")
 def signout():
-    session.pop('member_id', None)
-    session.pop('username', None)
-    session.pop('name', None)
+    session.pop("member_id", None)
+    session.pop("username", None)
+    session.pop("name", None)
     return redirect(url_for("home"))
 
 @app.route("/createMessage", methods=["POST"])
 def createMessage():
     if "member_id" in session:
-        member_id = session['member_id']
+        member_id = session["member_id"]
         messageContent = request.form.get("message_content")
-
         try:
             with connection.cursor() as cursor:
                 sql_insert = "INSERT INTO message (member_id, content) VALUES (%s, %s)"
@@ -111,7 +110,7 @@ def createMessage():
     return "Not received message"
 
 @app.route("/deleteMessage", methods=["POST"])
-def delete_message():
+def deleteMessage():
     if "member_id" in session:
         message_ID = request.form.get("message_ID")
         print(message_ID)
