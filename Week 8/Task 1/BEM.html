@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEM CSS</title>
+  </head>
+  <body>
+    <div class="header">
+      <span class="header__logo">My Website</span>
+      <nav class="header__nav">
+        <ul class="header__nav_list">
+          <li class="header__nav_item">
+            <a href="#" class="header__nav_link">Home</a>
+          </li>
+          <li class="header__nav_item">
+            <a href="#" class="header__nav_link">About</a>
+          </li>
+          <li class="header__nav_item">
+            <a href="#" class="header__nav_link">Services</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="main">
+      <section class="main__section">
+        <h2 class="main__section_title">Welcome to our Website</h2>
+        <p class="main__section_text">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        </p>
+        <button class="btn btn--primary main__section--btn">submit.</button>
+      </section>
+
+      <section class="main__section">
+        <h2 class="main__section_title">Special Offer</h2>
+        <p class="main__section_text">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        </p>
+        <button class="btn btn--secondary main__section--btn">lorrnknk.</button>
+      </section>
+
+      <form class="main__form">
+        <input class="main__form--inputText" type="text" placeholder="write something...">
+        <br>
+        <label for="checkbok">check me!</label>
+        <input class="main__form--checkbox" type="checkbox" name="checkbok">
+      </form>
+
+      <div class="footer">
+        <p class="footer__text">&copy; 2023 My Website. All rights received.</p>
+      </div>
+    </div>
+  </body>
+</html>
