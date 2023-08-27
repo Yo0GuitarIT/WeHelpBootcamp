@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX and CORS</title>
+  </head>
+  <body>
+    <button id="fetchGoogle">Fetch Google</button>
+    <div id="resultGoogle"></div>
+
+    <button id="fetchTaipei">Fetch Taipei</button>
+    <div id="resultTaipei"></div>
+
+    <button id="fetchMyApi">Fetch My API</button>
+    <div id="resultMyApi"></div>
+
+    <script>
+      const fetchGoogle = document.getElementById("fetchGoogle");
+      const resultGoogle = document.getElementById("resultGoogle");
+      const fetchTaipei = document.getElementById("fetchTaipei");
+      const resultTaipei = document.getElementById("resultTaipei");
+      const fetchMyApi = document.getElementById("fetchMyApi");
+      const resultMyApi = document.getElementById("resultMyApi");
+
+      const googleSite = "https://www.google.com";
+      const taipeiSite =
+        "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json";
+      const myApiSite = "/myApi";
+
+      let fetchData = (url, resultElemnt) => {
+        return async () => {
+          const result = document.getElementById(resultElemnt);
+          try {
+            const response = await fetch(url);
+            if (response.ok) {
+              const text = "OK";
+              resultElemnt.textContent = text;
+            }
+          } catch (error) {
+            resultElemnt.textContent = "Error: " + error.message;
+          }
+        };
+      };
+
+      fetchGoogle.addEventListener("click",fetchData(googleSite, resultGoogle));
+
+      fetchTaipei.addEventListener("click",fetchData(taipeiSite, resultTaipei));
+
+      fetchMyApi.addEventListener("click", fetchData(myApiSite, resultMyApi));
+    </script>
+  </body>
+</html>
